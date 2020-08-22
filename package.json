@@ -5,6 +5,8 @@
   "repository": "https://github.com/ruifernandees/event-organizer.git",
   "author": "ruifernandees <dev.ruifernandes@gmail.com>",
   "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
+    "jest": "^26.4.2",
     "nodemon": "^2.0.4",
     "sucrase": "^3.15.0"
   }
