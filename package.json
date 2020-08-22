@@ -4,6 +4,9 @@
   "main": "src/server.js",
   "repository": "https://github.com/ruifernandees/event-organizer.git",
   "author": "ruifernandees <dev.ruifernandes@gmail.com>",
+  "scripts": {
+    "build": "sucrase ./src -d ./dist --transforms imports"
+  },
   "devDependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
     "jest": "^26.4.2",
