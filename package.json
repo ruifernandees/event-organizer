@@ -1,0 +1,8 @@
+{
+  "name": "event-organizer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ruifernandees/event-organizer.git",
+  "author": "ruifernandees <dev.ruifernandes@gmail.com>",
+  "license": "MIT"
+}
