@@ -1,7 +1,7 @@
 import path from 'path';
 import textToObject from '../helpers/textToObject';
 
-class EventController {
+class EventsController {
   async store(request, response) {
     const { file } = request;
 
@@ -17,4 +17,4 @@ class EventController {
   }
 }
 
-export default EventController;
+export default EventsController;
