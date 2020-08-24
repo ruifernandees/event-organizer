@@ -18,4 +18,12 @@ describe('File upload', () => {
 
       expect(response.status).toBe(500);
   });
+
+  it('should return status 400 when the file have some line with invalid format', async () => {
+    const response = await request(app)
+      .post('/event')
+      .attach('file', '__test__/attach/proposals-wrong.txt');
+
+    expect(response.status).toBe(400);
+  });
 });
