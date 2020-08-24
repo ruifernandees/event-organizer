@@ -145,7 +145,7 @@ module.exports = {
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    "**/__tests__/**/*.test.js?(x)",
+    "**/__test__/**/*.test.js?(x)",
     "**/?(*.)+(spec|test).[tj]s?(x)"
   ],
 
@@ -170,7 +170,7 @@ module.exports = {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  transform: { "^.+\\.[jt]sx?$": "@sucrase/jest-plugin" },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

@@ -10,11 +10,6 @@
     "dev": "nodemon ./src/server.js",
     "start": "node ./dist/server.js"
   },
-  "jest": {
-    "transform": {
-      ".(js|jsx|ts|tsx)": "@sucrase/jest-plugin"
-    }
-  },
   "devDependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
     "jest": "^26.4.2",
