@@ -32,4 +32,13 @@ describe('Convert the array with the lectures to object', () => {
 
     expect(objects).toStrictEqual(expectedObjects);
   });
+
+  it("should return null", () => {
+    const filePath = path.resolve(__dirname, '..', 'attach', 'proposals-wrong.txt');
+
+    const objects = textToObject(filePath);
+
+    // expect(objects).toStrictEqual({ error: "Some line of the file have invalid format" });
+    expect(objects).toBe(null);
+  });
 })
