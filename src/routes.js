@@ -1,14 +1,14 @@
 import express, { Router } from 'express';
 import multer from 'multer';
+
 import multerConfig from './config/multer';
+import EventController from './controllers/EventController';
 
 const routes = express.Router();
 const upload = multer(multerConfig).single('file');
 
-routes.post('/file-post', upload, (req, res) => { 
-  console.log(req.file);
+const eventController = new EventController();
 
-  res.json({ message: "Hello World" }).status(200);
-});
+routes.post('/event', upload, eventController.store);
 
 export default routes;
