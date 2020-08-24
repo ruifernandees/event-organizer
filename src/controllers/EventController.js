@@ -7,12 +7,12 @@ class EventController {
 
     const filePath = path.resolve(__dirname, '..', '..', 'tmp', 'uploads', file.filename);
     
-    if (filePath) {
-      const array = textToObject(filePath);
-      // console.log(array);
-      response.json({ file: array }).status(200);
+    const array = textToObject(filePath);
+
+    if (array === null) {
+      response.status(400).json({ error: "Some line of the file have and invalid format" });
     } else {
-      response.status(500);
+      response.status(200).json({ file: array });
     }
   }
 }
