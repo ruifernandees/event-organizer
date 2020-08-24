@@ -9,7 +9,7 @@ describe('Convert text to array', () => {
     const array = textToArray(filePath);
 
     const expected = [
-      "Diminuindo tempo de execução de testes em aplicações Rails enterprise 60min",
+      "Diminuindo te20mpo de execução de testes em aplicações Rails enterprise 60min",
       "Reinventando a roda em ASP clássico 45min",
       "Apresentando Lua para as massas 30min",
       "Erros de Ruby oriundos de versões erradas de gems 45min",

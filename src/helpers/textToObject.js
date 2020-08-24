@@ -23,7 +23,7 @@ export default function textToObject(filePath) {
     const lectureTrim = lecture.trim();
     
     const lastSpace = lectureTrim.lastIndexOf(" ");
-    const lectureTitle = lectureTrim.slice(0, lastSpace);
+    const lectureTitle = lectureTrim.slice(0, lastSpace).replace(/[0-9]/g, '');
     const lectureDuration = lectureTrim.slice(lastSpace, -1);
 
     // console.log("textToObject " + lectureTrim);
