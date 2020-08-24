@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import textToObject from '../helpers/textToObject';
+import organizeEvent from '../helpers/organizeEvent';
 
 class EventsController {
   async store(request, response) {
@@ -8,7 +8,7 @@ class EventsController {
 
     const filePath = path.resolve(__dirname, '..', '..', 'tmp', 'uploads', file.filename);
     
-    const array = textToObject(filePath);
+    const array = organizeEvent(filePath);
 
     try {
       fs.unlinkSync(filePath);
