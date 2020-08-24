@@ -11,9 +11,11 @@ Codifique menos, Escreva mais! 30min
 Programação em par 45min
 A mágica do Rails: como ser mais produtivo 60min
 Ruby on Rails: Por que devemos deixá-lo para trás 60min
+  
 Clojure engoliu Scala: migrando minha aplicação 45min
 Ensinando programação nas grotas de Maceió 30min
 Ruby vs. Clojure para desenvolvimento backend 30min
 Manutenção de aplicações legadas em Ruby on Rails 60min
 Um mundo sem StackOverflow 30min
 Otimizando CSS em aplicações Rails 30min
+   
