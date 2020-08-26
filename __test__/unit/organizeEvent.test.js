@@ -14,45 +14,53 @@ describe('Organize the event', () => {
         morningLectures: [
           {
             title: "Ensinando programação nas grotas de Maceió",
-            duration: 30
+            time: "9:00"
           },
           {
             title: "Ruby vs. Clojure para desenvolvimento backend",
-            duration: 30
+            time: "9:30"
           },
           {
             title: "Manutenção de aplicações legadas em Ruby on Rails",
-            duration: 60
+            time: "10:30"
           },
           {
             title: "Um mundo sem StackOverflow",
-            duration: 30
+            time: "11:00"
           },
           {
             title: "Otimizando CSS em aplicações Rails",
-            duration: 30
+            time: "11:30"
+          },
+          {
+            title: "Almoço",
+            time: "12:00"
           }
         ],
-        afternoonLectures: [
+        "afternoonLectures": [
           {
             title: "Codifique menos, Escreva mais!",
-            duration: 30
+            time: "13:00"
           },
           {
             title: "Programação em par",
-            duration: 45
+            time: "13:45"
           },
           {
             title: "A mágica do Rails: como ser mais produtivo",
-            duration: 60
+            time: "14:45"
           },
           {
             title: "Ruby on Rails: Por que devemos deixá-lo para trás",
-            duration: 60
+            time: "15:45"
           },
           {
             title: "Clojure engoliu Scala: migrando minha aplicação",
-            duration: 45
+            time: "16:30"
+          },
+          {
+            title: "Evento de networking",
+            time: "17:00"
           }
         ]
       },
@@ -61,41 +69,49 @@ describe('Organize the event', () => {
         morningLectures: [
           {
             title: "Diminuindo tempo de execução de testes em aplicações Rails enterprise",
-            duration: 60
+            time: "9:00"
           },
           {
             title: "Reinventando a roda em ASP clássico",
-            duration: 45
+            time: "9:45"
           },
           {
             title: "Apresentando Lua para as massas",
-            duration: 30
+            time: "10:15"
           },
           {
             title: "Erros de Ruby oriundos de versões erradas de gems",
-            duration: 45
+            time: "11:00"
+          },
+          {
+            title: "Almoço",
+            time: "12:00"
           }
         ],
-        afternoonLectures: [
+        "afternoonLectures": [
           {
             title: "Erros comuns em Ruby",
-            duration: 45
+            time: "13:00"
           },
           {
             title: "Rails para usuários de Django",
-            duration: 5
+            time: "13:05"
           },
           {
             title: "Trabalho remoto: prós e cons",
-            duration: 60
+            time: "14:05"
           },
           {
             title: "Desenvolvimento orientado a gambiarras",
-            duration: 45
+            time: "14:50"
           },
           {
             title: "Aplicações isomórficas: o futuro (que talvez nunca chegaremos)",
-            duration: 30
+            time: "15:20"
+          },
+          {
+            title: "Evento de networking",
+            time: "17:00"
           }
         ]
       }

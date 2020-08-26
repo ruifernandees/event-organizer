@@ -11,16 +11,7 @@ export default function organizeEvent(lecture) {
   const possibles = objects.length;
   const durations = objects.map(lecture => lecture.duration);
   const totalEventDuration = durations.reduce((stored, current) => stored + current);
-  const totalDays = Math.ceil(totalEventDuration / 420); // 840 => 1260 1680
-
-  // const objectsSplit2 = split(objects, 4);
-
-  // const filteredLectures = objectsSplit2.filter(group => {
-  //   const sum = group.reduce((stored, current) => stored + current.duration, 0);
-  //   console.log("group: ", group);
-  //   console.log("Sum: ", sum);
-  //   return sum === 105;
-  // });
+  const totalDays = Math.ceil(totalEventDuration / 420); 
 
   const morningLectures = testLinearlyGroupsOfPossibleLectures(objects, possibles, [], 180);
 
@@ -55,14 +46,51 @@ export default function organizeEvent(lecture) {
     afternoonLectures = [...afternoonLectures, [...objectsWithoutAfternoonLectures]];
   }
 
-  // const event = {
-  //   totalEventDuration,
-  //   totalDays,
-  //   morningLecturesIndexes,
-  //   afternoonLecturesIndexes,
-  //   morningLectures,
-  //   afternoonLectures
-  // };
+  const minutesToHours = (valueInMinutes) => {
+    const hours = Math.floor(valueInMinutes / 60);
+    let minutes = valueInMinutes % 60 || "00";
+
+    if (minutes < 10 && minutes !== "00") {
+      minutes = `0${minutes}`;
+    }
+
+    return `${hours}:${minutes}`;
+  };
+
+  const morningLecturesHours = morningLectures.map(group => {
+    let begin = 540;
+    return group.map((lecture, index) => {
+      if (index !== 0) {
+        begin = begin + lecture.duration;
+      }
+      return {
+        title: lecture.title,
+        time: minutesToHours(begin)
+      }
+    })
+  });
+
+  const afternoonLecturesHours = afternoonLectures.map(group => {
+    let begin = 780;
+    return group.map((lecture, index) => {
+      if (index !== 0) {
+        begin = begin + lecture.duration;
+      }
+
+      return {
+        title: lecture.title,
+        time: minutesToHours(begin)
+      }
+    })
+  });
+
+  const morningLecturesComplete = morningLecturesHours.map(group => {
+    return [...group, { title: "Almoço", time: "12:00" }];
+  });
+
+  const afternoonLecturesComplete = afternoonLecturesHours.map(group => {
+    return [...group, { title: "Evento de networking", time: "17:00" }];
+  });
 
   const generateEvent = (morningLectures, afternoonLectures, totalDays, tracks, iterator = 0) => {
 
@@ -85,7 +113,7 @@ export default function organizeEvent(lecture) {
     return generateEvent(morningLectures, afternoonLectures, totalDays, tracks, iterator + 1);
   };
 
-  const event = generateEvent(morningLectures, afternoonLectures, totalDays, []);
+  const event = generateEvent(morningLecturesComplete, afternoonLecturesComplete, totalDays, []);
   
   console.log(objects.length)
 
