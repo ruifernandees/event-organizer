@@ -64,7 +64,28 @@ export default function organizeEvent(lecture) {
   //   afternoonLectures
   // };
 
-  const event = {};
+  const generateEvent = (morningLectures, afternoonLectures, totalDays, tracks, iterator = 0) => {
+
+    if (iterator >= totalDays) {
+      return tracks;
+    }
+
+    const alphabet = [
+      'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+      'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+      'Y', 'Z'
+    ];
+
+    tracks = [...tracks, {
+      name: `Track ${alphabet[iterator]}`,
+      morningLectures: morningLectures[iterator],
+      afternoonLectures: afternoonLectures[iterator]
+    }];
+
+    return generateEvent(morningLectures, afternoonLectures, totalDays, tracks, iterator + 1);
+  };
+
+  const event = generateEvent(morningLectures, afternoonLectures, totalDays, []);
   
   console.log(objects.length)
 
