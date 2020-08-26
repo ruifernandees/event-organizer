@@ -18,19 +18,50 @@ export default function organizeEvent(lecture) {
   //   return sum === 105;
   // });
 
-  let morningLectures = testLinearlyGroupsOfPossibleLectures(objects, possibles, [], 180);
+  const morningLectures = testLinearlyGroupsOfPossibleLectures(objects, possibles, [], 180);
 
-  if (morningLectures.length < totalDays) {
-    // morningLectures = [];
+  const morningLecturesIndexesInArrs = morningLectures.map(group => {
+    return group.map(lecture => objects.indexOf(lecture));
+  });
+
+  const morningLecturesIndexes = morningLecturesIndexesInArrs.reduce((stored, current) => {
+    return stored.concat(current);
+  }, []);
+
+  const objectsWithoutMorningLectures = objects.filter((lecture, index) => {
+    return !morningLecturesIndexes.includes(index);
+  });
+  
+
+  let afternoonLectures = testLinearlyGroupsOfPossibleLectures(objectsWithoutMorningLectures, possibles, [], 240);
+
+  const afternoonLecturesIndexesInArrs = afternoonLectures.map(group => {
+    return group.map(lecture => objectsWithoutMorningLectures.indexOf(lecture));
+  });
+
+  const afternoonLecturesIndexes = afternoonLecturesIndexesInArrs.reduce((stored, current) => {
+    return stored.concat(current);
+  }, []);
+
+  const objectsWithoutAfternoonLectures = objectsWithoutMorningLectures.filter((lecture, index) => {
+    return !afternoonLecturesIndexes.includes(index);
+  });
+
+  if (afternoonLectures.length < totalDays) {
+    afternoonLectures = [...afternoonLectures, [...objectsWithoutAfternoonLectures]];
   }
 
-  const event = {
-    totalEventDuration,
-    totalDays,
-    morningLecturesQ: morningLectures.length,
-    morningLectures
-  };
+  // const event = {
+  //   totalEventDuration,
+  //   totalDays,
+  //   morningLecturesIndexes,
+  //   afternoonLecturesIndexes,
+  //   morningLectures,
+  //   afternoonLectures
+  // };
 
+  const event = {};
+  
   console.log(objects.length)
 
   return event;
