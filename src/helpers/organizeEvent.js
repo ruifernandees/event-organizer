@@ -4,6 +4,10 @@ export default function organizeEvent(lecture) {
 
   const objects = textToObject(lecture);
 
+  if (!objects) {
+    return null;
+  }
+
   const possibles = objects.length;
   const durations = objects.map(lecture => lecture.duration);
   const totalEventDuration = durations.reduce((stored, current) => stored + current);
